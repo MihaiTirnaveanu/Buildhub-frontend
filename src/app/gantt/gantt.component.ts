@@ -11,7 +11,7 @@ import { gantt } from 'dhtmlx-gantt';
     templateUrl: "./gantt.component.html",
 })
 
-export class GanttComponent implements OnInit {
+export class GanttComponent implements OnInit{
     @ViewChild('gantt_here', { static: true }) ganttContainer!: ElementRef;
 
     constructor(private taskService: TaskService, private linkService: LinkService){}
