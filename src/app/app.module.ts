@@ -19,6 +19,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { WorkplanCreateDialogComponent } from './workplans/workplan-create-dialog/workplan-create-dialog.component';
 import { WorkplanEditDialogComponent } from './workplans/workplan-edit-dialog/workplan-edit-dialog.component';
+import { TaskComponent } from './tasks/task/task.component';
+import { TaskEditDialogComponent } from './tasks/task-edit-dialog/task-edit-dialog.component';
+import { TaskCreateDialogComponent } from './tasks/task-create-dialog/task-create-dialog.component';
 
 
 
@@ -29,7 +32,10 @@ import { WorkplanEditDialogComponent } from './workplans/workplan-edit-dialog/wo
     NavbarComponent,
     WorkplanComponent,
     WorkplanCreateDialogComponent,
-    WorkplanEditDialogComponent
+    WorkplanEditDialogComponent,
+    TaskComponent,
+    TaskCreateDialogComponent,
+    TaskEditDialogComponent
   ],
   imports: [
     BrowserModule,

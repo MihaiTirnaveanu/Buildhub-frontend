@@ -1,12 +1,36 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Task } from '../models/task';
 
-@Injectable()
+
+@Injectable({
+  providedIn: 'root'
+})
 export class TaskService {
-    get(): Promise<Task[]>{
-        return Promise.resolve([
-            { id: 1, text: 'Task #1', start_date: '2023-04-15 00:00', end_date: '2023-04-18 00:00', name: "Task 1", description: "Task de 3 zile", duration: 3, progress: 0.6, parent: 0 },
-            { id: 2, text: 'Task #2', start_date: '2023-04-18 00:00', end_date: '2023-04-19 00:00', name: "Task 1", description: "Task de 3 zile", duration: 3, progress: 0.4, parent: 0 }
-        ]);
-    }
+  private apiUrl = 'http://localhost:8080/api/tasks';
+
+  constructor(private http: HttpClient) {}
+
+  getAllTasks(): Observable<Task[]> {
+    return this.http.get<Task[]>(this.apiUrl);
+  }
+
+  getTaskById(id: number): Observable<Task> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<Task>(url);
+  }
+
+  createTask(Task: Task): Observable<Task> {
+    return this.http.post<Task>(this.apiUrl, Task);
+  }
+
+  updateTask(updatedTask: Task): Observable<Task> {
+    return this.http.put<Task>(this.apiUrl, updatedTask);
+  }
+
+  deleteTaskById(id: number): Observable<void> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete<void>(url);
+  }
 }
