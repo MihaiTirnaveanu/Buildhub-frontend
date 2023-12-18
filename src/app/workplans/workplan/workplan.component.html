@@ -1,0 +1,56 @@
+<button mat-raised-button (click)="create()">Add Workplan</button>
+
+<table mat-table [dataSource]="workplans" class="mat-elevation-z8 custom-mat-table">
+  <!-- Displaying columns -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let workplan">{{ workplan.id }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let workplan">{{ workplan.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="startDate">
+    <th mat-header-cell *matHeaderCellDef>Start Date</th>
+    <td mat-cell *matCellDef="let workplan">{{ workplan.startDate | date }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="endDate">
+    <th mat-header-cell *matHeaderCellDef>End Date</th>
+    <td mat-cell *matCellDef="let workplan">{{ workplan.endDate | date }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>Description</th>
+    <td mat-cell *matCellDef="let workplan">{{ workplan.description }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="worksite">
+    <th mat-header-cell *matHeaderCellDef>Worksite</th>
+    <td mat-cell *matCellDef="let workplan">{{ workplan.worksite }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef>Status</th>
+    <td mat-cell *matCellDef="let workplan">{{ workplan.status }}</td>
+  </ng-container>
+
+  <!-- Actions column -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <td mat-cell *matCellDef="let workplan">
+      <button mat-icon-button color="primary" (click)="edit(workplan)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="delete(workplan.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <!-- Table rows -->
+  <tr mat-header-row *matHeaderRowDef="['id', 'name', 'startDate', 'endDate', 'description', 'worksite', 'status', 'actions']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['id', 'name', 'startDate', 'endDate', 'description', 'worksite', 'status', 'actions']"></tr>
+</table>
