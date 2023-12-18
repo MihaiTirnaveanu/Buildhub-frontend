@@ -9,7 +9,6 @@ import { WorkplanComponent } from './workplans/workplan/workplan.component';
 import { WorkplanService } from './services/workplan.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -19,6 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { WorkplanCreateDialogComponent } from './workplans/workplan-create-dialog/workplan-create-dialog.component';
+import { WorkplanEditDialogComponent } from './workplans/workplan-edit-dialog/workplan-edit-dialog.component';
 
 
 
@@ -28,7 +28,8 @@ import { WorkplanCreateDialogComponent } from './workplans/workplan-create-dialo
     GanttComponent,
     NavbarComponent,
     WorkplanComponent,
-    WorkplanCreateDialogComponent
+    WorkplanCreateDialogComponent,
+    WorkplanEditDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -42,8 +43,7 @@ import { WorkplanCreateDialogComponent } from './workplans/workplan-create-dialo
     ReactiveFormsModule,
     MatButtonModule,
     MatSelectModule,
-    MatInputModule,
-    CommonModule
+    MatInputModule
   ],
   providers: [WorkplanService],
   bootstrap: [AppComponent]
